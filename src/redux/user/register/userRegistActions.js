@@ -27,7 +27,7 @@ export const userRegist = (data, callback) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/register/user",
+        "https://sipskbt-be.vercel.app/api/v1/register/user",
         data,
         {
           withCredentials: true, // Include credentials (cookies) in the request

@@ -24,7 +24,7 @@ const getValidasiError = (error)=>{
 export const getUserVal = ()=>{
     return(dispatch)=>{
         dispatch(getValidasiRequest())
-        axios.get("http://localhost:5000/api/v2/show/all/riwayat/validasi",{withCredentials:true})
+        axios.get("https://sipskbt-be.vercel.app/api/v2/show/all/riwayat/validasi",{withCredentials:true})
         .then((response)=>{
             dispatch(getValidasiSuccess(response.data.data))
             console.log(response.data.data);

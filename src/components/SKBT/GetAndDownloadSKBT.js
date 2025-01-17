@@ -11,7 +11,7 @@ const GetAndDownloadSKBT = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/get/surat/SKBT",
+          "https://sipskbt-be.vercel.app/api/v1/get/surat/SKBT",
           {
             withCredentials: true, // Include credentials (cookies) in the request
           }

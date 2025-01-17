@@ -25,10 +25,10 @@ const valPutError = (error)=>{
 export const valPutAdmin = (id,data,callback) =>{
     return(dispatch)=>{
         dispatch(valPutRequest())
-        console.log("Request URL:", `http://localhost:5000/api/v1/validate/berkas/${id}`);
+        console.log("Request URL:", `https://sipskbt-be.vercel.app/api/v1/validate/berkas/${id}`);
     console.log("Request Payload:", data);
 
-        axios.put(`http://localhost:5000/api/v1/validate/berkas/${id}`,data,{withCredentials:true})
+        axios.put(`https://sipskbt-be.vercel.app/api/v1/validate/berkas/${id}`,data,{withCredentials:true})
         .then((response)=>{
             dispatch(valPutSuccess(response.data))
             if(callback){

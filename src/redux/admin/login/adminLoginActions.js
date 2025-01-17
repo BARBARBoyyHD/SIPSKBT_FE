@@ -24,7 +24,7 @@ const adminLoginError = (error)=>{
 export const adminLogin =(data,callback)=>{
     return(dispatch)=>{
         dispatch(adminLoginRequest())
-        axios.post("http://localhost:5000/api/v2/login/admin",data,{withCredentials:true})
+        axios.post("https://sipskbt-be.vercel.app/api/v2/login/admin",data,{withCredentials:true})
         .then((response)=>{
             dispatch(adminLoginSuccess(response.data))
             if(callback){
