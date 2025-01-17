@@ -1,0 +1,3 @@
+export const VAL_PUT_REQUEST = "VAL_PUT_REQUEST"
+export const VAL_PUT_SUCCESS = "VAL_PUT_SUCCESS"
+export const VAL_PUT_ERROR = "VAL_PUT_ERROR"
