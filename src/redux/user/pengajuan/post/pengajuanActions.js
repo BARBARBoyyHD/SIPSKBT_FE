@@ -25,7 +25,7 @@ export const postPengajuan = (data, callback) => {
     return (dispatch) => {
       dispatch(postRequest());
       axios
-        .post("https://sipskbt-be.vercel.app/api/v1/post/pengajuan", data, {
+        .post("http://localhost:5000/api/v1/post/pengajuan", data, {
           headers: {
             "Content-Type": "multipart/form-data", // Ensure the correct content type
           },

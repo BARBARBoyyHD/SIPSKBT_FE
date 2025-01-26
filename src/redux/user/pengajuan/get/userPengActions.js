@@ -29,7 +29,7 @@ export const getUserRiwayat = () => {
   return (dispatch) => {
     dispatch(getRiwayatRequest());
     axios
-      .get("https://sipskbt-be.vercel.app/api/v1/get/surat/pengajuan/user", {
+      .get("http://localhost:5000/api/v1/get/surat/pengajuan/user", {
         withCredentials: true,
       })
       .then((response) => {

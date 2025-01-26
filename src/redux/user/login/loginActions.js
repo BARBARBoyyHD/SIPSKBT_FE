@@ -24,7 +24,7 @@ const loginUserError = (error)=>{
 export const loginUser = (data,callback)=>{
     return(dispatch)=>{
         dispatch(loginUserRequest())
-        axios.post("https://sipskbt-be.vercel.app/api/v1/login/user",data,{withCredentials:true})
+        axios.post("http://localhost:5000/api/v1/login/user",data,{withCredentials:true})
         .then((response)=>{
             dispatch(loginUserSuccess(response.data))
             if(callback){

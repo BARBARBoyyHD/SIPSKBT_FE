@@ -24,10 +24,10 @@ const putRiwayatError = (error) => {
 export const putRiwayatAdmin = (id, data, callback) => {
   return (dispatch) => {
     dispatch(putRiwayatRequest());
-    console.log("Request URL:", `https://sipskbt-be.vercel.app/api/v1/validate/surat/${id}`);
+    console.log("Request URL:", `http://localhost:5000/api/v1/validate/surat/${id}`);
     console.log("Request Payload:", data);
     axios
-      .put(`https://sipskbt-be.vercel.app/api/v1/validate/surat/${id}`, data, { withCredentials: true })
+      .put(`http://localhost:5000/api/v1/validate/surat/${id}`, data, { withCredentials: true })
       .then((response) => {
         dispatch(putRiwayatSuccess(response.data.data));
         if (callback) {

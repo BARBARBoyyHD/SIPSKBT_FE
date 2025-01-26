@@ -34,6 +34,8 @@ const FormLoginUser = () => {
       loginUser(formData, (responseStatus) => {
         if (responseStatus === 200) {
           navigate("/pages/user/dashboard");
+        } else {
+          navigate("/pages/user/login");
         }
       })
     );

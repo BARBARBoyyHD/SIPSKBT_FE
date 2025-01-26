@@ -11,7 +11,7 @@ const GetAndDownloadSKBT = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://sipskbt-be.vercel.app/api/v1/get/surat/SKBT",
+          "http://localhost:5000/api/v1/get/surat/SKBT",
           {
             withCredentials: true, // Include credentials (cookies) in the request
           }
@@ -27,31 +27,31 @@ const GetAndDownloadSKBT = () => {
     fetchData();
   }, []);
 
-  // Determine the border color and text based on the status
+  // Determine the background color, text color, and message based on the status
   const getStatusStyle = (status) => {
     switch (status) {
       case "disetujui":
         return {
-          borderColor: "green",
-          textColor: "green",
+          bgColor: "bg-green-500", // Green background
+          textColor: "text-white", // White text
           message: "Silahkan unduh SKBT ini",
         };
       case "ditolak":
         return {
-          borderColor: "red",
-          textColor: "red",
+          bgColor: "bg-red-500", // Red background
+          textColor: "text-white", // White text
           message: "Pengajuan ditolak",
         };
       case "proses":
         return {
-          borderColor: "yellow",
-          textColor: "yellow",
+          bgColor: "bg-yellow-500", // Yellow background
+          textColor: "text-white", // White text
           message: "Pengajuan sedang diproses",
         };
       default:
         return {
-          borderColor: "gray",
-          textColor: "gray",
+          bgColor: "bg-gray-500", // Gray background
+          textColor: "text-white", // White text
           message: "Status tidak diketahui",
         };
     }
@@ -69,16 +69,18 @@ const GetAndDownloadSKBT = () => {
 
       {data && (
         <div
-          className={`p-4 border-2 rounded-lg mb-4`}
-          style={{ borderColor: getStatusStyle(data.status).borderColor }}
+          className={`p-4 rounded-lg mb-4 ${
+            getStatusStyle(data.status).bgColor
+          }`}
         >
           <p
-            className="text-lg font-semibold"
-            style={{ color: getStatusStyle(data.status).textColor }}
+            className={`text-lg font-bold ${
+              getStatusStyle(data.status).textColor
+            }`}
           >
             Status: {data.status}
           </p>
-          <p className="mt-2 text-gray-700">
+          <p className={`mt-2 ${getStatusStyle(data.status).textColor}`}>
             {getStatusStyle(data.status).message}
           </p>
 
@@ -89,7 +91,7 @@ const GetAndDownloadSKBT = () => {
                 href={data.surat_disetujui}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-white hover:underline font-semibold"
               >
                 Unduh SKBT
               </a>

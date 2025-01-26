@@ -23,7 +23,7 @@ export const getValidasiUser = () => {
     return (dispatch) => {
         dispatch(getValidasiRequest())
         axios
-            .get("https://sipskbt-be.vercel.app/api/v1/get/surat/riwayat/val/user", {
+            .get("http://localhost:5000/api/v1/get/surat/riwayat/val/user", {
                 withCredentials: true,
             })
             .then((response) => {

@@ -29,7 +29,7 @@ export const pengajuanSingle = (id) => {
   return (dispatch) => {
     dispatch(pengajuanSingleRequest());
     axios
-      .get(`https://sipskbt-be.vercel.app/api/v1/surat/pengajuan/${id}`, {
+      .get(`http://localhost:5000/api/v1/surat/pengajuan/${id}`, {
         withCredentials: true,
       })
       .then((response) => {

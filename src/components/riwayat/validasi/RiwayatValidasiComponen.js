@@ -51,34 +51,37 @@ const RiwayatValidasiComponen = () => {
                   {item.status || "-"}
                 </span>
               </div>
-              <div className="flex justify-between relative">
-                {/* Progress line */}
-                <div className="absolute top-4 left-0 right-0 h-1 bg-gray-200 z-0"></div>
-                {steps.map((step, stepIndex) => (
-                  <div
-                    key={stepIndex}
-                    className="flex flex-col items-center z-10"
-                  >
-                    {/* Circle (dot) */}
+              {/* Wrapper for horizontal scrolling */}
+              <div className="overflow-x-auto">
+                <div className="flex justify-between relative min-w-[600px]">
+                  {/* Progress line */}
+                  <div className="absolute top-4 left-0 right-0 h-1 bg-gray-200 z-0"></div>
+                  {steps.map((step, stepIndex) => (
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                        item[step.key]
-                          ? "bg-blue-500 text-white"
-                          : "bg-gray-300 text-gray-500"
-                      }`}
+                      key={stepIndex}
+                      className="flex flex-col items-center z-10"
                     >
-                      {stepIndex + 1}
+                      {/* Circle (dot) */}
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                          item[step.key]
+                            ? "bg-blue-500 text-white"
+                            : "bg-gray-300 text-gray-500"
+                        }`}
+                      >
+                        {stepIndex + 1}
+                      </div>
+                      {/* Label */}
+                      <p className="mt-2 text-sm text-center text-gray-600">
+                        {step.label}
+                      </p>
+                      {/* Value */}
+                      <p className="mt-1 text-sm text-center text-gray-800">
+                        {item[step.key] || "-"}
+                      </p>
                     </div>
-                    {/* Label */}
-                    <p className="mt-2 text-sm text-center text-gray-600">
-                      {step.label}
-                    </p>
-                    {/* Value */}
-                    <p className="mt-1 text-sm text-center text-gray-800">
-                      {item[step.key] || "-"}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           ))}

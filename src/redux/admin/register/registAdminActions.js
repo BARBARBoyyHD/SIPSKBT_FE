@@ -27,7 +27,7 @@ export const adminRegist = (data, callback) => {
 
     try {
       const response = await axios.post(
-        "https://sipskbt-be.vercel.app/api/v1/register/admin", // Replace with your API endpoint
+        "http://localhost:5000/api/v1/register/admin", // Replace with your API endpoint
         data,
         {
           withCredentials: true, // Include credentials (cookies) in the request

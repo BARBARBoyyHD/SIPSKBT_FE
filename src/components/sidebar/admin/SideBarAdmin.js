@@ -24,7 +24,7 @@ const SideBarAdmin = () => {
           <ul className="space-y-2 font-medium">
             <li>
               <Link
-                to="/pages/user/dashboard"
+                to="/pages/admin/dashboard"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <RiPieChartLine/>
@@ -64,15 +64,7 @@ const SideBarAdmin = () => {
                   isDropdownOpen ? "block" : "hidden"
                 } py-2 space-y-2`}
               >
-                <li>
-                  <Link
-                    to="/pages/user/pengajuan/baru"
-                    className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white hover:text-blue-700 dark:hover:bg-gray-700"
-                  >
-                    <GoDot />
-                    List Pengajuan Baru
-                  </Link>
-                </li>
+                
                 <li>
                   <Link
                     to="/pages/admin/show/all/validasi"

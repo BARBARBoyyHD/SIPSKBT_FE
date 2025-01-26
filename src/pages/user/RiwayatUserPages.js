@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavbarUser from "../../components/navbar/user/NavbarUser";
 import SidebarUser from "../../components/sidebar/user/SidebarUser";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -9,10 +9,23 @@ import GetAndDownloadSKBT from "../../components/SKBT/GetAndDownloadSKBT";
 
 const RiwayatUserPages = () => {
   const navigate = useNavigate();
+  const [isMobile,setIsMobile] = useState(false);
+
+  const handleMobile = ()=>{
+    setIsMobile(window.innerWidth < 768); 
+  }
 
   const ButtonOnclick = () => {
     navigate("/pages/user/pengajuan/baru");
   };
+
+  useEffect(()=>{
+    window.addEventListener("resize",handleMobile);
+    handleMobile();
+    return()=>{
+      window.removeEventListener("resize",handleMobile);
+    }
+  },[])
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -24,12 +37,18 @@ const RiwayatUserPages = () => {
       {/* Main Content */}
       <main className="flex flex-row pt-16">
         {/* Fixed Sidebar */}
-        <aside className="fixed h-screen w-64 bg-white shadow-lg">
-          <SidebarUser />
-        </aside>
+        {
+          !isMobile && (
+            <aside className="fixed h-screen w-64 bg-white shadow-lg">
+              <SidebarUser />
+            </aside>
+          )
+        }
 
         {/* Scrollable Main Content */}
-        <section className="ml-64 w-full min-h-screen bg-gray-100 p-8">
+        <section className={`w-full min-h-screen bg-blue-400 pt-16 flex justify-center ${
+            !isMobile ? "ml-64" : ""
+          }`}>
           <div className="max-w-7xl mx-auto">
             {/* Header Section */}
             <div className="flex justify-between items-center mb-8">

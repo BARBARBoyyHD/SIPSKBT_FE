@@ -11,3 +11,7 @@ export { adminLogin } from "./admin/login/adminLoginActions";
 export { pengajuanSingle } from "./admin/pengajuan/single/pengajuanSingleActions";
 export { userRegist } from "./user/register/userRegistActions";
 export {adminRegist} from "./admin/register/registAdminActions"
+export {getUserProfile} from "./user/profile/get/UserProfileActions";
+export {updateUser} from "./user/profile/put/UserUpdateActions"
+export {getAdminProfile} from "./admin/profile/get/AdminProfileActions";
+export {adminEditProfile} from "./admin/profile/put/AdminEditActions"

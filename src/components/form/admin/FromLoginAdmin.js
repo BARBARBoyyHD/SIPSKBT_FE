@@ -30,6 +30,9 @@ const FromLoginAdmin = () => {
         if (responseStatus === 200) {
           navigate("/pages/admin/dashboard");
         }
+        else{
+          navigate("/pages/admin/login")
+        }
       })
     );
   };

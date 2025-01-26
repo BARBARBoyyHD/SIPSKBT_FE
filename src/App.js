@@ -16,6 +16,10 @@ import AdminEditValPages from "./pages/admin/AdminEditValPages";
 import AdminGetSingleRiwayatpages from "./pages/admin/AdminGetSingleRiwayatPages";
 import AdminCheckFilePages from "./pages/admin/AdminCheckFilePages";
 import AdminRegisterPages from "./pages/admin/AdminRegisterPages";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
+import EditUserProfilePages from "./pages/user/EditUserProfilePages";
+import AdminProfilePages from "./pages/admin/AdminProfilePages";
+import AdminEditProfilePages from "./pages/admin/AdminEditProfilePages";
 function App() {
   return (
     <Provider store={store}>
@@ -26,39 +30,63 @@ function App() {
           <Route path="/pages/user/dashboard" element={<DashboardPages />} />
           <Route path="/pages/user/login" element={<LoginPages />} />
           <Route path="/pages/user/register" element={<RegisterPages />} />
-          <Route path="/pages/user/profile" element={<ProfilePages />} />
-          <Route
-            path="/pages/user/pengajuan/baru"
-            element={<PengajuanBaru />}
-          />
-          <Route
-            path="/pages/user/riwayat/pengajuan"
-            element={<RiwayatUserPages />}
-          />
-          <Route
-            path="/pages/admin/show/all/validasi"
-            element={<AdminListValidasiPages />}
-          />
+          {/* protected routes */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/pages/user/profile" element={<ProfilePages />} />
+            <Route
+              path="/pages/user/edit/profile"
+              element={<EditUserProfilePages />}
+            />
+            <Route
+              path="/pages/user/pengajuan/baru"
+              element={<PengajuanBaru />}
+            />
+            <Route
+              path="/pages/user/riwayat/pengajuan"
+              element={<RiwayatUserPages />}
+            />
+            <Route
+              path="/pages/admin/show/all/validasi"
+              element={<AdminListValidasiPages />}
+            />
+            <Route
+              path="/pages/admin/edit/profile"
+              element={<AdminEditProfilePages />}
+            />
+            <Route
+              path="/pages/admin/dashboard"
+              element={<DashboardAdminPages />}
+            />
+            <Route
+              path="/pages/admin/profile"
+              element={<AdminProfilePages />}
+            />
+            <Route
+              path="/pages/admin/edit/validasi/:validasi_id"
+              element={<AdminEditValPages />}
+            />
+            <Route
+              path="/pages/admin/riwayat/single/:riwayat_id"
+              element={<AdminGetSingleRiwayatpages />}
+            />
+            <Route
+              path="/pages/admin/check/user/pengajuan/:pengajuan_id"
+              element={<AdminCheckFilePages />}
+            />
+          </Route>
+
           {/* admin pages */}
           <Route path="/pages/admin/login" element={<AdminLoginPages />} />
-          <Route path="/pages/admin/register" element={<AdminRegisterPages />} />
+
           <Route
-            path="/pages/admin/dashboard"
-            element={<DashboardAdminPages />}
+            path="/pages/admin/register"
+            element={<AdminRegisterPages />}
           />
+
           <Route
             path="/pages/admin/register"
             element={<RegisterAdminPages />}
           />
-          <Route
-            path="/pages/admin/edit/validasi/:validasi_id"
-            element={<AdminEditValPages />}
-          />
-          <Route
-            path="/pages/admin/riwayat/single/:riwayat_id"
-            element={<AdminGetSingleRiwayatpages />}
-          />
-          <Route path="/pages/admin/check/user/pengajuan/:pengajuan_id" element={<AdminCheckFilePages/>}/>
         </Routes>
       </Router>
     </Provider>

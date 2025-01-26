@@ -120,7 +120,7 @@ const SectionPersyaratan = () => {
           </li>
           <li className="flex items-start gap-2">
             <TiArrowRight className="text-blue-500 text-xl flex-shrink-0" />
-            Pos-el: inspektoratlandak@gmail.com;
+            Pos-el: inspektorat@sumselprov.go.id
           </li>
           <li className="flex items-start gap-2">
             <TiArrowRight className="text-blue-500 text-xl flex-shrink-0" />
